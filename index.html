@@ -3,7 +3,7 @@
    - file, You can obtain one at https://mozilla.org/MPL/2.0/. -->
 
 <!doctype html>
-<html>
+<html lang="pt-BR">
   <head>
     <title>Bookbinder</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,61 +12,71 @@
     <link rel="stylesheet" href="./matcha.css" />
     <link rel="icon" type="image/x-icon" href="/bookbinder-js/favicon.ico" />
     <meta charset="UTF-8" />
-    <script type="module" crossorigin src="/bookbinder-js/assets/index-DP2hqLOf.js"></script>
+    <script type="module" crossorigin src="/bookbinder-js/assets/index-dNvN0oRx.js"></script>
   </head>
 
   <body>
     <div class="wrapper">
       <div class="section" id="intro">
         <h1>Bookbinder JS</h1>
-        A Javascript-based app for formatting PDFs for bookbinding-- a process called imposition.
-        For more information, feature requests, or to contribute, view the project's
-        <a href="https://github.com/momijizukamori/bookbinder-js">Github repository</a>.
+        Um app em Javascript para formatar PDFs para encadernação -- processo chamado imposição.
+        Para mais informações, pedidos de funcionalidades ou para contribuir, veja o
+        <a href="https://github.com/fernandohjunqueira/bookbinder-js"
+          >repositório do projeto no Github</a
+        >.
         <center style="font-family: monospace; padding-top: 0.75em; font-variant-caps: small-caps">
-          current version: 1.7.0
+          versão atual: 1.7.0
         </center>
       </div>
       <form id="bookbinder" name="bookbinder">
         <section class="section" id="input">
-  <header><h2>File Info</h2></header>
+  <header><h2>Arquivo</h2></header>
   <label
-    >Input File: <input type="file" name="input_file" accept=".pdf" id="input_file" class="inline"
+    >Arquivo de entrada:
+    <input type="file" name="input_file" accept=".pdf" id="input_file" class="inline"
   /></label>
-  <!-- <span class="row"><label>Page Size: <span id="page_size"></span></span> -->
-  <!-- <span class="row">Page Ratio: <span id="input_ratio"></span></span> -->
+  <!-- <span class="row"><label>Tamanho da página: <span id="page_size"></span></span> -->
+  <!-- <span class="row">Proporção da página: <span id="input_ratio"></span></span> -->
   <p class="flash variant">
-    While some PDF viewers display the first two pages as a spread, be aware the first page, which
-    is odd, will be on the right when printed. The first printed spread are pages 2 & 3 of your PDF
-    document. Evens always on the left, odds always on the right.
+    Embora alguns leitores de PDF mostrem as duas primeiras páginas lado a lado, saiba que a
+    primeira página, que é ímpar, ficará à direita quando impressa. O primeiro par de páginas
+    impresso são as páginas 2 e 3 do seu PDF. Pares sempre à esquerda, ímpares sempre à direita.
   </p>
   <label for="print_file"
-    >Generated Files:
+    >Arquivos gerados:
     <select name="print_file" id="print_file" class="inline">
-      <option value="aggregated">Aggregated File Only</option>
-      <option value="both" selected>Both aggregated & per signature files</option>
-      <option value="signatures">Signature Files Only</option>
+      <option value="aggregated">Somente arquivo agregado</option>
+      <option value="both" selected>Arquivo agregado e arquivos por caderno</option>
+      <option value="signatures">Somente arquivos por caderno</option>
     </select>
   </label>
   <label
-    >Page Range:
-    <input type="text" name="page_range" id="page_range" class="inline" placeholder="All pages" />
+    >Intervalo de páginas:
+    <input
+      type="text"
+      name="page_range"
+      id="page_range"
+      class="inline"
+      placeholder="Todas as páginas"
+    />
   </label>
-  <small>Optional. Examples: <code>1-8</code>, <code>1,3,5-7</code>.</small>
+  <small>Opcional. Exemplos: <code>1-8</code>, <code>1,3,5-7</code>.</small>
 </section>
 
-        <section class="section" id="input">
-  <header><h2>Source Manipulation</h2></header>
+        <!-- Ajuste do original: oculto, não é mais usado -->
+<section class="section" id="input" hidden>
+  <header><h2>Ajuste do original</h2></header>
   <label for="source_rotation" class="mb-1"
-    >Style:
+    >Estilo:
     <select name="source_rotation" id="source_rotation" class="inline">
-      <option id="none" value="none" selected="selected">no modification</option>
-      <option id="90cw" value="90cw">rotate pages 90° clockwise</option>
-      <option id="90ccw" value="90ccw">rotate pages 90° counter clockwise</option>
+      <option id="none" value="none" selected="selected">sem modificação</option>
+      <option id="90cw" value="90cw">girar páginas 90° no sentido horário</option>
+      <option id="90ccw" value="90ccw">girar páginas 90° no sentido anti-horário</option>
       <option id="out_binding" value="out_binding">
-        odd pages 90° clockwise, even pages 90° anti-clockwise
+        páginas ímpares 90° no sentido horário, pares 90° no sentido anti-horário
       </option>
       <option id="in_binding" value="in_binding">
-        odd pages 90° anti-clockwise, even pages 90° clockwise
+        páginas ímpares 90° no sentido anti-horário, pares 90° no sentido horário
       </option>
     </select>
   </label>
@@ -75,24 +85,24 @@
     <img src="/bookbinder-js/img/noRotationDiagram.png" width="100px" />
     <p>
       <br />
-      For books that read like a standard novel<br />
-      no rotation of pages applied
+      Para livros que se leem como um romance comum<br />
+      nenhuma rotação é aplicada às páginas
     </p>
   </div>
   <div id="90cw_example" class="hidden source_rotation_example flash variant small flex center">
     <img src="/bookbinder-js/img/90cwDiagram.png" width="100px" />
     <p>
       <br />
-      For books that turn pages like a calender<br />
-      back to front, rotate all pages 90° clockwise
+      Para livros que viram as páginas como um calendário<br />
+      de trás para frente, gira todas as páginas 90° no sentido horário
     </p>
   </div>
   <div id="90ccw_example" class="hidden source_rotation_example flash variant small flex center">
     <img src="/bookbinder-js/img/90ccwDiagram.png" width="100px" />
     <p>
       <br />
-      For books that turn pages like a calender<br />
-      front to back, rotate all pages 90° counter clockwise
+      Para livros que viram as páginas como um calendário<br />
+      de frente para trás, gira todas as páginas 90° no sentido anti-horário
     </p>
   </div>
   <div
@@ -102,8 +112,8 @@
     <img src="/bookbinder-js/img/bottomBindingDiagram.png" width="100px" />
     <p>
       <br />
-      For books with bound edge at bottom of the page<br />
-      rotate all odd pages 90° clockwise, all even pages 90° anti-clockwise
+      Para livros com a encadernação na base da página<br />
+      gira as páginas ímpares 90° no sentido horário e as pares 90° no sentido anti-horário
     </p>
   </div>
   <div
@@ -113,29 +123,29 @@
     <img src="/bookbinder-js/img/topBindingDiagram.png" width="100px" />
     <p>
       <br />
-      For books with bound edge at top of the page<br />
-      rotate all odd pages 90° anti-clockwise, all even pages 90° clockwise
+      Para livros com a encadernação no topo da página<br />
+      gira as páginas ímpares 90° no sentido anti-horário e as pares 90° no sentido horário
     </p>
   </div>
 </section>
 
         <section class="section" id="printer_info">
-  <header><h2>Printer</h2></header>
+  <header><h2>Impressora</h2></header>
   <label for="paper_size"
-    >Paper size:
+    >Tamanho do papel:
     <select name="paper_size" id="paper_size" class="inline"></select
   ></label>
   <div class="ml-2 input-group">
     <label for="paper_size_unit"
-      >Display unit for paper selection:
+      >Unidade exibida na seleção de papel:
       <select name="paper_size_unit" id="paper_size_unit" class="inline">
-        <option label="Points" value="pt" />
-        <option label="Inches" value="in" />
-        <option label="Centimeters" value="cm" />
+        <option label="Pontos" value="pt" />
+        <option label="Polegadas" value="in" />
+        <option label="Centímetros" value="cm" />
       </select>
     </label>
     <label for="paper_size_unit" class="mb-1"
-      >Dimensions for CUSTOM:
+      >Dimensões para PERSONALIZADO:
       <input
         type="number"
         id="paper_size_custom_width"
@@ -149,10 +159,10 @@
         name="paper_size_custom_height"
         class="inline"
       />
-      (in Points)
+      (em pontos)
       <span
         data-balloon-length="medium"
-        aria-label="The CUSTOM option in drop down will only appear if valid dimensions are provided. Points are the unit the system/code works in. Luckily Google can help you convert cm or inches into Points quite easily!"
+        aria-label="A opção PERSONALIZADO só aparece na lista se dimensões válidas forem informadas. Pontos são a unidade com que o sistema trabalha. Felizmente o Google converte cm ou polegadas em pontos facilmente!"
         data-balloon-pos="up"
         >ℹ️</span
       >
@@ -160,223 +170,238 @@
   </div>
 
   <label for="printer_type"
-    >Printer type:
+    >Tipo de impressora:
     <select name="printer_type" id="printer_type" class="inline">
-      <option value="single" selected>Single-Sided</option>
-      <option value="duplex">Duplex</option>
+      <option value="single" selected>Frente única</option>
+      <option value="duplex">Frente e verso (duplex)</option>
     </select>
     <span
       data-balloon-length="medium"
-      aria-label="Duplex will alternate front and backs of sheets in a single file; Single-sided will split fronts and backs into seperate files."
+      aria-label="Frente e verso alterna frentes e versos das folhas em um único arquivo; Frente única separa frentes e versos em arquivos diferentes."
       data-balloon-pos="up"
       >ℹ️</span
     ></label
   >
   <label for="paper_rotation_90"
-    >Rotate Paper 90°: <input type="checkbox" name="paper_rotation_90" id="paper_rotation_90" />
+    >Girar papel 90°: <input type="checkbox" name="paper_rotation_90" id="paper_rotation_90" />
     <span
       data-balloon-length="medium"
-      aria-label="This puts your paper in 'landscape' -- layout still happens the same, but the porportions of things will be different"
+      aria-label="Coloca o papel em 'paisagem' -- o layout continua o mesmo, mas as proporções ficam diferentes"
       data-balloon-pos="up"
       >ℹ️</span
     ></label
   >
 
   <label class="mb-1"
-    >Alternate Page Rotation (AKA Flip on Long Side):<input type="checkbox" name="rotate_page"
+    >Alternar rotação das páginas (virar pela borda longa):<input
+      type="checkbox"
+      name="rotate_page"
   /></label>
 </section>
 
         <section class="section" id="book_size">
-  <header><h2>Page Layout</h2></header>
+  <header><h2>Layout da página</h2></header>
   <label for="pagelayout" class="mb-1"
-    >Style:
+    >Estilo:
     <select name="pagelayout" id="pagelayout" class="inline">
-      <option id="folio" value="folio">Folio - two pages per side of sheet</option>
-      <option id="quarto" value="quarto" selected>Quarto - four pages per side of sheet</option>
-      <option id="octavo" value="octavo">Octavo - eight pages per side of sheet</option>
+      <option id="folio" value="folio">Fólio - duas páginas por lado da folha</option>
+      <option id="quarto" value="quarto" selected>Quarto - quatro páginas por lado da folha</option>
+      <option id="octavo" value="octavo">Oitavo - oito páginas por lado da folha</option>
       <option id="sextodecimo" value="sextodecimo">
-        Sextodecimo - sixteen pages per side of sheet
+        Dezesseis avos - dezesseis páginas por lado da folha
       </option>
     </select>
   </label>
   <details>
-    <summary>Folding instructions for quarto/octavo</summary>
+    <summary>Instruções de dobra para quarto/oitavo</summary>
     <p>
-      Folding these two layouts is slightly more complex than the simple single-fold folio. Both of
-      these have been designed so that the first fold is parallel to the short edge of the paper -
-      eg, if you hold the page in portrait orientation, you will be folding the top edge to the
-      bottom. One side of the page will have consecutive numbers across this fold (ie, 3 and 30 on
-      the top row, 2 and 31). Fold inward across this line (so that 3 has been folded to lay against
-      2, and 30 against 31). The next fold is along the other paper axis (parallel to the original
-      long edge). For quarto, you want to find the side with the numbers closest together, and fold
-      inwards to match them (this will be consecutive on the innermost sheet). For octavo, look at
-      the bottom-most row and find the consecutive pair, then fold inward. Octavo has one last fold,
-      for which you want to find the pair remaning that are closest, and fold them together.
+      Dobrar esses dois layouts é um pouco mais complexo do que o fólio de dobra única. Ambos foram
+      projetados para que a primeira dobra seja paralela à borda curta do papel - por exemplo, se
+      você segurar a folha na orientação retrato, vai dobrar a borda superior até a inferior. Um dos
+      lados da folha terá números consecutivos atravessando essa dobra (ou seja, 3 e 30 na linha de
+      cima, 2 e 31). Dobre para dentro nessa linha (de modo que o 3 fique encostado no 2, e o 30 no
+      31). A próxima dobra é ao longo do outro eixo do papel (paralela à borda longa original). No
+      quarto, encontre o lado com os números mais próximos e dobre para dentro para juntá-los (eles
+      serão consecutivos na folha mais interna). No oitavo, olhe a linha mais de baixo, encontre o
+      par consecutivo e dobre para dentro. O oitavo tem uma última dobra, para a qual você deve
+      encontrar o par restante mais próximo e dobrá-los juntos.
     </p>
     <p>
-      Or, if you want to just memorize the order, once you find the first fold side, the order
-      is:<br />
-      <b>quarto</b> - top to bottom, fold points away from you, left to right, fold points towards
-      you.<br />
-      <b>octavo</b> - top to bottom, fold points away from you, left to right, fold points away from
-      you, top to bottom, fold points towards you.
+      Ou, se preferir apenas decorar a ordem, depois de encontrar o lado da primeira dobra, a ordem
+      é:<br />
+      <b>quarto</b> - de cima para baixo, dobra apontando para longe de você; da esquerda para a
+      direita, dobra apontando para você.<br />
+      <b>oitavo</b> - de cima para baixo, dobra apontando para longe de você; da esquerda para a
+      direita, dobra apontando para longe de você; de cima para baixo, dobra apontando para você.
     </p>
   </details>
 
   <label for="page_scaling"
-    >Page scaling:
+    >Escala da página:
     <select name="page_scaling" id="page_scaling" class="inline">
       <option value="centered">Original</option>
-      <option value="lockratio" selected>Keep proportional</option>
-      <option value="stretch">Stretch to fit</option>
+      <option value="lockratio" selected>Manter proporção</option>
+      <option value="stretch">Esticar para caber</option>
     </select>
   </label>
 
   <label for="page_positioning"
-    >Page Positioning:
+    >Posicionamento da página:
     <select name="page_positioning" id="page_positioning" class="inline">
-      <option value="centered" selected>Centered</option>
-      <option value="binding_aligned">Snug against binding edge</option>
+      <option value="centered" selected>Centralizado</option>
+      <option value="binding_aligned">Encostado na borda da encadernação</option>
     </select>
   </label>
 
   <span class="flex space-evenly align-center layout_margin_user_input">
     <div class="input-group ml-2 mt-1">
-      <label>
-        Fore-Edge Margin:
+      <label
+        >Margem externa (corte frontal):
         <input
           type="number"
+          step="any"
           id="main_fore_edge_padding_pt"
           name="main_fore_edge_padding_pt"
           class="layout_margin_user_input_field inline"
-        />pt</label
+        /><span class="margin_unit">mm</span></label
       >
       <label
-        >Binding Margin:
+        >Margem da encadernação:
         <input
           type="number"
+          step="any"
           id="binding_edge_padding_pt"
           name="binding_edge_padding_pt"
           class="layout_margin_user_input_field inline"
-        />pt</label
+        /><span class="margin_unit">mm</span></label
       >
       <label
-        >Top Margin:
+        >Margem superior:
         <input
           type="number"
+          step="any"
           id="top_edge_padding_pt"
           name="top_edge_padding_pt"
           class="layout_margin_user_input_field inline"
-        />pt</label
+        /><span class="margin_unit">mm</span></label
       >
       <label
-        >Bottom Margin:
+        >Margem inferior:
         <input
           type="number"
+          step="any"
           id="bottom_edge_padding_pt"
           name="bottom_edge_padding_pt"
           class="layout_margin_user_input_field inline"
-        />pt</label
+        /><span class="margin_unit">mm</span></label
+      >
+      <label
+        >Informar margens em pontos:
+        <input type="checkbox" id="margins_in_pt" name="margins_in_pt" />
+        <span
+          data-balloon-length="medium"
+          aria-label="Por padrão as margens são informadas em milímetros. Marque para informar em pontos (1 ponto = 1/72 polegada)."
+          data-balloon-pos="up"
+          >ℹ️</span
+        ></label
       >
     </div>
     <div class="small shrink" style="max-width: 15em">
-      White Space Manipulation. All values are in points, relative to original document.<br /><br />1
-      point = 1/72 inch
+      Ajuste de espaço em branco. Valores relativos ao documento original, em milímetros (ou em
+      pontos, se a opção estiver marcada).<br /><br />1 mm ≈ 2,83 pontos
     </div>
   </span>
 
   <span class="flex center mt-2 small" id="show_layout_info">
     <div>
-      <div class="layout_spine_label">spine</div>
+      <div class="layout_spine_label">lombada</div>
       <div class="stripes_paper" id="grid_layout_preview">
         <div class="stripes_pdf" id="pdf_on_page_layout_preview"></div>
       </div>
     </div>
     <div class="layout_margin_info ml-4" id="layout_margin_info">
       <div class="stripes_paper stripes_sample_box"></div>
-      <b>Paper/Layout Dimensions</b>
+      <b>Dimensões do papel/layout</b>
       Layout: <span id="page_grid_layout"></span><br />
-      Max page size:
+      Tamanho máximo da página:
       <span id="page_grid_dimensions"></span><br />
       <br />
       <div class="stripes_pdf stripes_sample_box"></div>
-      <b>PDF Dimensions</b><br />
-      Source: <span id="pdf_source_dimensions"></span><br />
-      On page: <span id="pdf_page_dimensions"></span><br />
-      Scaling: <span id="pdf_scale_dimensions"></span><br />
-      Offset:
+      <b>Dimensões do PDF</b><br />
+      Original: <span id="pdf_source_dimensions"></span><br />
+      Na página: <span id="pdf_page_dimensions"></span><br />
+      Escala: <span id="pdf_scale_dimensions"></span><br />
+      Deslocamento:
       <div class="inline">
         <div id="pdf_offset_dimensions"></div>
       </div>
       <br />
-      Rotated: <span id="pdf_page_rotation_info"></span><br />
+      Rotacionado: <span id="pdf_page_rotation_info"></span><br />
       <br />
-      (<i>All dimensions are in Points</i>)
+      (<i>Todas as dimensões são em pontos</i>)
     </div>
   </span>
 </section>
 
         <section class="section">
-  <h2>PDF Markup</h2>
-  <p class="flash attention small">(does not currently work with Wacky Small Layouts -- soon!)</p>
+  <h2>Marcações no PDF</h2>
   <label
-    >Add Foldlines:
+    >Adicionar linhas de dobra:
     <input type="checkbox" name="cropmarks" />
     <span
       data-balloon-length="medium"
-      aria-label="Adds folding guidelines (ordered thickest to thinnest)"
+      aria-label="Adiciona guias de dobra (ordenadas da mais grossa para a mais fina)"
       data-balloon-pos="up"
       >ℹ️
     </span>
   </label>
   <label
-    >Add Cutlines: <input type="checkbox" name="cutmarks" />
-    <span data-balloon-length="medium" aria-label="Adds cutting guidelines" data-balloon-pos="up">
+    >Adicionar linhas de corte: <input type="checkbox" name="cutmarks" />
+    <span data-balloon-length="medium" aria-label="Adiciona guias de corte" data-balloon-pos="up">
       ℹ️</span
     >
   </label>
   <label
-    >Add PDF bounds indicators (spine):
+    >Adicionar indicadores dos limites do PDF (lombada):
     <input type="checkbox" name="pdf_edge_marks" />
     <span
       data-balloon-length="medium"
-      aria-label="Puts small marks on the outermost folio of the signatures indicating the top and bottom of the PDF"
+      aria-label="Coloca pequenas marcas no fólio mais externo dos cadernos indicando o topo e a base do PDF"
       data-balloon-pos="up"
     >
       ℹ️</span
     >
   </label>
   <label
-    >Add signature order marks (spine):
+    >Adicionar marcas de ordem dos cadernos (lombada):
     <input type="checkbox" name="sig_order_marks" />
     <span
       data-balloon-length="medium"
-      aria-label="Puts staggered lines down the different signature spines to indicate order"
+      aria-label="Coloca linhas escalonadas nas lombadas dos cadernos para indicar a ordem"
       data-balloon-pos="up"
       >ℹ️</span
     >
   </label>
   <label class="mb-1"
-    >Add marks for sewing:
+    >Adicionar marcas de costura:
     <input type="checkbox" id="add_sewing_marks_checkbox" name="add_sewing_marks_checkbox"
   /></label>
 
   <details id="sewing_marks_details">
-    <summary>Detailed settings for sewing</summary>
+    <summary>Configurações detalhadas de costura</summary>
     <label
-      >Draw marks on:
+      >Desenhar marcas em:
       <select name="sewing_mark_locations" id="sewing_mark_locations" class="inline">
-        <option value="all" selected="selected">center of every folio</option>
-        <option value="only_out">only on spine</option>
-        <option value="only_in">only in center of signature</option>
-        <option value="in_n_out">both spine and center of signature</option>
+        <option value="all" selected="selected">centro de cada fólio</option>
+        <option value="only_out">somente na lombada</option>
+        <option value="only_in">somente no centro do caderno</option>
+        <option value="in_n_out">na lombada e no centro do caderno</option>
       </select>
     </label>
-    Look at the image below.<br />
+    Veja a imagem abaixo.<br />
     <div class="input-group ml-2">
       <label
-        >(A) Margin (distance where first point should be draw):
+        >(A) Margem (distância onde o primeiro ponto deve ser desenhado):
         <input
           type="number"
           id="sewing_marks_margin_pt"
@@ -386,7 +411,7 @@
       >
 
       <label
-        >(B) Amount of sewing points:
+        >(B) Quantidade de pontos de costura:
         <input
           type="number"
           id="sewing_marks_amount"
@@ -395,7 +420,7 @@
       /></label>
 
       <label
-        >(C) Tape width:
+        >(C) Largura da fita:
         <input
           type="number"
           id="sewing_marks_tape_width_pt"
@@ -405,7 +430,7 @@
       >
     </div>
     <img
-      alt="sewing image - use tape width of 0pt to make a single dot (overlapping marks)"
+      alt="imagem de costura - use largura de fita 0pt para fazer um único ponto (marcas sobrepostas)"
       src="/bookbinder-js/img/sewing_settings_explanation.png"
       style="height: 100%; width: 100%; object-fit: contain"
     />
@@ -413,238 +438,246 @@
 </section>
 
         <section class="section" id="sig_format">
-  <header><h2>Signature Format</h2></header>
+  <header><h2>Formato dos cadernos</h2></header>
 
   <label>
     <input type="radio" id="booklet" name="sig_format" value="booklet" />
-    Booklet</label
+    Livreto</label
   >
 
   <label for="perfect">
     <input type="radio" id="perfect" name="sig_format" value="perfect" />
-    Perfectbound</label
+    Brochura (lombada colada)</label
   >
 
   <label for="standardsig"
-    ><input type="radio" id="standardsig" name="sig_format" value="standardsig" checked /> Standard
-    signatures - length <input type="number" value="8" name="sig_length" class="inline" />
+    ><input type="radio" id="standardsig" name="sig_format" value="standardsig" checked /> Cadernos
+    padrão - tamanho <input type="number" value="8" name="sig_length" class="inline" />
     <span
       data-balloon-length="medium"
-      aria-label="Number of sheets per signature"
+      aria-label="Número de folhas por caderno"
       data-balloon-pos="up"
       >ℹ️</span
     ></label
   >
 
   <label for="customsig" class="mb-1">
-    <input type="radio" id="customsig" name="sig_format" value="customsig" />Custom signatures
+    <input type="radio" id="customsig" name="sig_format" value="customsig" />Cadernos personalizados
     <input type="text" name="custom_sig" class="inline" />
 
     <span
       data-balloon-length="medium"
-      aria-label="Specify as a set of numbers seperated by commas, such as: 10, 10, 8"
+      aria-label="Informe uma lista de números separados por vírgulas, por exemplo: 10, 10, 8"
       data-balloon-pos="up"
       >ℹ️</span
     >
   </label>
   <details>
-    <summary>A note on calculating signature lengths</summary>
+    <summary>Uma observação sobre o cálculo do tamanho dos cadernos</summary>
     <p>
-      In this code, the length of a signature is the number of full-sized sheets of paper per
-      signature. For a folio book, this means that the number of folds you punch through when sewing
-      together a signature is the same as the number of sheets in the signature, as each sheet has
-      one fold. For quarto, this will be two folds for each sheet - octavo, four; sextodecimo,
-      eight. Calculate your signature lengths accordingly (in particular, you almost certainly don't
-      want more than one sheet for sextodecimo).
+      Aqui, o tamanho de um caderno é o número de folhas de papel inteiras por caderno. Em um livro
+      em fólio, isso significa que o número de dobras que você fura ao costurar um caderno é igual
+      ao número de folhas do caderno, já que cada folha tem uma dobra. No quarto, serão duas dobras
+      por folha - no oitavo, quatro; no dezesseis avos, oito. Calcule o tamanho dos seus cadernos de
+      acordo (em especial, você quase certamente não vai querer mais de uma folha no dezesseis
+      avos).
     </p>
   </details>
-  <h3>Wacky Small Layouts</h3>
-  <p class="flash variant">
-    These layouts contain one or more signature per printed page. They use only the "File Info" and
-    "Printer" settings. The names are arbitrary and hold no standardized meaning.
-  </p>
-  <div class="flex space-evenly">
-    <label class="centered"
-      >Fore-Edge Padding: <br /><input
-        type="number"
-        id="fore_edge_padding_pt"
-        name="fore_edge_padding_pt"
-        class="inline"
-      />pt</label
-    >
-    <div>
-      <label for="wacky_pack"
-        ><input
-          type="radio"
-          id="wacky_pack"
-          name="wacky_spacing"
-          value="wacky_pack"
-          checked
-        />Packed page layout</label
+  <!-- Layouts Pequenos Malucos: ocultos, não são mais usados -->
+  <div id="wacky_layouts" hidden>
+    <h3>Layouts Pequenos Malucos</h3>
+    <p class="flash variant">
+      Estes layouts contêm um ou mais cadernos por página impressa. Eles usam apenas as
+      configurações de "Arquivo" e "Impressora". Os nomes são arbitrários e não têm significado
+      padronizado.
+    </p>
+    <div class="flex space-evenly">
+      <label class="centered"
+        >Margem externa (corte frontal): <br /><input
+          type="number"
+          id="fore_edge_padding_pt"
+          name="fore_edge_padding_pt"
+          class="inline"
+        />pt</label
       >
-      <label for="wacky_gap"
-        ><input type="radio" id="wacky_gap" name="wacky_spacing" value="wacky_gap" />Distributed
-        space page layout</label
-      >
+      <div>
+        <label for="wacky_pack"
+          ><input
+            type="radio"
+            id="wacky_pack"
+            name="wacky_spacing"
+            value="wacky_pack"
+            checked
+          />Layout com páginas agrupadas</label
+        >
+        <label for="wacky_gap"
+          ><input type="radio" id="wacky_gap" name="wacky_spacing" value="wacky_gap" />Layout com
+          espaço distribuído</label
+        >
+      </div>
     </div>
+
+    <label for="1_3rd">
+      <input type="radio" id="1_3rd" name="sig_format" value="1_3rd" />6 por lado
+      <small>(caderno de 3 fólios)</small></label
+    >
+
+    <details class="ml-2">
+      <summary>Instruções</summary>
+      <p>
+        Corte ao longo das linhas <i>ou</i> corte apenas a sobra do topo (ao longo do "topo" exposto
+        da página) e depois dobre ao longo das linhas pontilhadas (se for refilar, pode cortar só o
+        excesso da base -- mas os topos precisam ficar iguais para o nivelamento). As margens
+        externas são intencionalmente pouco marcadas para que você possa refilar onde achar melhor
+        depois de dobrar e montar.
+      </p>
+      <p>
+        Não é o layout que mais economiza papel, mas é otimizado para organização (se um caderno é
+        uma única folha, fica mais difícil errar a ordem) e muitos cadernos menores resultam em
+        lombadas mais arredondadas e mais volume, na minha opinião [de six] (o que ajuda a fazer
+        bons ombros, se você curte isso)
+      </p>
+    </details>
+
+    <label for="A7_2_16s"
+      ><input type="radio" id="A7_2_16s" name="sig_format" value="A7_2_16s" /> Petite - 16 por lado
+      <small>(caderno de 4 fólios x 2)</small></label
+    >
+
+    <details class="ml-2">
+      <summary>Instruções</summary>
+      <p>
+        <center>
+          <img src="/bookbinder-js/img/2_sig_4x4_diagram.png" />
+        </center>
+        Corte a linha central vertical. Você também pode cortar as linhas horizontais, se quiser, ou
+        apenas dobrar como descrito acima.
+      </p>
+    </details>
+
+    <label for="8_zine">
+      <input type="radio" id="8_zine" name="sig_format" value="8_zine" /> Zine de folha única - 8
+      por lado <small>(página impressa de um lado só, dobrada)</small></label
+    >
+    <details class="ml-2">
+      <summary>Instruções</summary>
+      <p>
+        O clássico zine de folha única, sem cortes! Basta dobrar do jeito certo e você tem um fólio
+        mutante fora do padrão formando um livrinho de 8 páginas -- páginas além da 8ª são
+        descartadas. Para instruções de dobra melhores do que eu conseguiria escrever, veja:
+        <a href="https://www.quarantinepubliclibrary.com/tutorial"
+          >https://www.quarantinepubliclibrary.com/tutorial</a
+        >
+      </p>
+    </details>
+    <label for="a_3_6s"
+      ><input type="radio" id="a_3_6s" name="sig_format" value="a_3_6s" />Pequeno - 18 por lado
+      <small>(caderno de 3 fólios por linha x 3)</small></label
+    >
+    <details class="ml-2">
+      <summary>Instruções</summary>
+      <p class="flash attention">
+        ESTE É UM LAYOUT EM PAISAGEM. ELE DEVE SER IMPRESSO "virando pela borda curta" (o modo de
+        virar menos comum)
+      </p>
+
+      <p>
+        Lembre-se de fazer uma impressão de teste de uma folha se for sua primeira vez, para
+        garantir que o frente e verso/espelhamento está correto!
+      </p>
+      <p>
+        Recorte as linhas. Dobre os fólios em zigue-zague (dois por face). Depois dobre o centro do
+        texto (junte os dois números de página correspondentes).
+      </p>
+      <p>
+        Ao dobrar, é importante que o
+        <b>centro dos fólios fique alinhado</b>. É isso que eu uso como referência (menos
+        preocupação em dobrar exatamente na borda). Lembre-se! O desalinhamento da impressora
+        existe!
+      </p>
+    </details>
+
+    <label for="a9_3_3_4">
+      <input type="radio" id="a9_3_3_4" name="sig_format" value="a9_3_3_4" />Miúdo - 20 por lado
+      <small>(cadernos de 3 fólios / 3 fólios / 4 fólios)</small></label
+    >
+
+    <details class="ml-2">
+      <summary>Instruções</summary>
+      <p>
+        <center>
+          <img src="/bookbinder-js/img/3_3_4_diagram.png" />
+        </center>
+        Corte nas linhas de corte. Dobre os cadernos de 3 fólios e depois o de 4 fólios.
+      </p>
+    </details>
+
+    <label for="a_4_8s"
+      ><input type="radio" id="a_4_8s" name="sig_format" value="a_4_8s" />Minúsculo - 32 por lado
+      <small>(caderno de 4 fólios por linha x 4)</small></label
+    >
+
+    <details class="ml-2">
+      <summary>Instruções</summary>
+      <p class="flash attention">
+        ESTE É UM LAYOUT EM PAISAGEM. ELE DEVE SER IMPRESSO "virando pela borda curta" (o modo de
+        virar menos comum)
+      </p>
+      <p>
+        Lembre-se de fazer uma impressão de teste de uma folha se for sua primeira vez, para
+        garantir que o frente e verso/espelhamento está correto!
+      </p>
+      <p>
+        Recorte as linhas. Dobre os fólios em zigue-zague (dois por face). Depois dobre o centro do
+        texto (junte os dois números de página correspondentes).
+      </p>
+      <p>
+        Ao dobrar, é importante que o
+        <b>centro dos fólios fique alinhado</b>. É isso que eu uso como referência (menos
+        preocupação em dobrar exatamente na borda). Lembre-se! O desalinhamento da impressora
+        existe!
+      </p>
+    </details>
+
+    <label for="a10_6_10s"
+      ><input type="radio" id="a10_6_10s" name="sig_format" value="a10_6_10s" />Mini - 60 por lado
+      <small>(cadernos de 2 fólios / 3 fólios por linha x 6)</small></label
+    >
+    <details class="ml-2">
+      <summary>Instruções</summary>
+      <p class="flash attention">
+        ESTE É UM LAYOUT EM PAISAGEM. ELE DEVE SER IMPRESSO "virando pela borda curta" (o modo de
+        virar menos comum)
+      </p>
+      <p>
+        Felizmente a maioria dos layouts pequenos cabe em uma página -- é fácil fazer uma impressão
+        de teste e conferir se o frente e verso está correto (se for esse o seu caminho)
+      </p>
+      <p>
+        <center>
+          <img src="/bookbinder-js/img/6_10s_diagram.png" />
+        </center>
+        Recorte as linhas. Dobre os fólios em um grande zigue-zague (dois por face). Depois dobre os
+        2 primeiros fólios em um caderno e os 3 últimos em outro. Muitas vezes eu só os separo na
+        hora de costurar.
+      </p>
+      <p>
+        Ao dobrar, é importante que o
+        <b>centro dos fólios fique alinhado</b>. É isso que eu uso como referência (menos
+        preocupação em dobrar exatamente na borda). Lembre-se! O desalinhamento da impressora
+        existe!
+      </p>
+    </details>
   </div>
-
-  <label for="1_3rd">
-    <input type="radio" id="1_3rd" name="sig_format" value="1_3rd" />6 per side
-    <small>(3 folio signature)</small></label
-  >
-
-  <details class="ml-2">
-    <summary>Instructions</summary>
-    <p>
-      Cut along the lines <i>or</i> cut just extra bit off the top (along exposed "top" of page) and
-      then fold up along the dotted lines (if trimming, you can just trim off the cruft at the
-      bottom-- tops need to be even for leveling purposes however). Outer margins intentionally
-      under-marked so you can trim wherever feels right after folding & assembly.
-    </p>
-    <p>
-      Not the most paper efficient of layouts, but it's optimized for organization (if a signature
-      is just one page, harder to botch the ordering) and many, smaller signatures make for rounder
-      backs and large swell in my [six's] opinion (which helps w/ nice shoulders, if you're into
-      that sort of thing)
-    </p>
-  </details>
-
-  <label for="A7_2_16s"
-    ><input type="radio" id="A7_2_16s" name="sig_format" value="A7_2_16s" /> Petite - 16 per side
-    <small>(4 folio signature x 2)</small></label
-  >
-
-  <details class="ml-2">
-    <summary>Instructions</summary>
-    <p>
-      <center>
-        <img src="/bookbinder-js/img/2_sig_4x4_diagram.png" />
-      </center>
-      Cut the vertical center line. You can also cut the horizontal lines if you like, or just fold
-      it up as detailed above.
-    </p>
-  </details>
-
-  <label for="8_zine">
-    <input type="radio" id="8_zine" name="sig_format" value="8_zine" /> Single Sheet Zine - 8 per
-    side <small>(one sided printed page foldup)</small></label
-  >
-  <details class="ml-2">
-    <summary>Instructions</summary>
-    <p>
-      The classic no-cut, single page zine! Just fold it up right and you've got yourself a mutant
-      non-standard folio making an 8 page little fellow-- all extra pages beyond 8 are discarded.
-      For better folding instructions than I could possibly write, see:
-      <a href="https://www.quarantinepubliclibrary.com/tutorial"
-        >https://www.quarantinepubliclibrary.com/tutorial</a
-      >
-    </p>
-  </details>
-  <label for="a_3_6s"
-    ><input type="radio" id="a_3_6s" name="sig_format" value="a_3_6s" />Small - 18 per side
-    <small>(3 folio signature per row x 3)</small></label
-  >
-  <details class="ml-2">
-    <summary>Instructions</summary>
-    <p class="flash attention">
-      THIS IS A LANDSCAPE LAYOUT. IT MUST BE PRINTED AND "flipped on the short side" (the
-      non-typical flipping)
-    </p>
-
-    <p>
-      Remember to do a single-sheet test print if it's your first time to make sure duplex/mirroring
-      is correct!
-    </p>
-    <p>
-      Cut out the rows. Fold up the folios like a zig-zag (two per face). Then fold the center of
-      the text (smoosh the two matching page numbers together).
-    </p>
-    <p>
-      Note that when folding, it's important for the
-      <b>center of the folios to line up</b>. That's what I measure against (less so fretting about
-      folding exactly at the edge). Remember! Printer skew is a real thing!
-    </p>
-  </details>
-
-  <label for="a9_3_3_4">
-    <input type="radio" id="a9_3_3_4" name="sig_format" value="a9_3_3_4" />Little - 20 per side
-    <small>(3 folio / 3 folio / 4 folio signatures)</small></label
-  >
-
-  <details class="ml-2">
-    <summary>Instructions</summary>
-    <p>
-      <center>
-        <img src="/bookbinder-js/img/3_3_4_diagram.png" />
-      </center>
-      Cut along the cut lines. Fold up the 3 folio signatures, then the 4 folio.
-    </p>
-  </details>
-
-  <label for="a_4_8s"
-    ><input type="radio" id="a_4_8s" name="sig_format" value="a_4_8s" />Tiny - 32 per side
-    <small>(4 folio signature per row x 4)</small></label
-  >
-
-  <details class="ml-2">
-    <summary>Instructions</summary>
-    <p class="flash attention">
-      THIS IS A LANDSCAPE LAYOUT. IT MUST BE PRINTED AND "flipped on the short side" (the
-      non-typical flipping)
-    </p>
-    <p>
-      Remember to do a single-sheet test print if it's your first time to make sure duplex/mirroring
-      is correct!
-    </p>
-    <p>
-      Cut out the rows. Fold up the folios like a zig-zag (two per face). Then fold the center of
-      the text (smoosh the two matching page numbers together).
-    </p>
-    <p>
-      Note that when folding, it's important for the
-      <b>center of the folios to line up</b>. That's what I measure against (less so fretting about
-      folding exactly at the edge). Remember! Printer skew is a real thing!
-    </p>
-  </details>
-
-  <label for="a10_6_10s"
-    ><input type="radio" id="a10_6_10s" name="sig_format" value="a10_6_10s" />Mini - 60 per side
-    <small>(2 folio / 3 folio signatures per row x 6)</small></label
-  >
-  <details class="ml-2">
-    <summary>Instructions</summary>
-    <p class="flash attention">
-      THIS IS A LANDSCAPE LAYOUT. IT MUST BE PRINTED AND "flipped on the short side" (the
-      non-typical flipping)
-    </p>
-    <p>
-      Thankfully most small layouts fit on one page-- easy enough to do a test print and make sure
-      you're duplexing correctly (if that's your route)
-    </p>
-    <p>
-      <center>
-        <img src="/bookbinder-js/img/6_10s_diagram.png" />
-      </center>
-      Cut out the rows. Fold up the folios like a big zig-zag (two per face). Then fold the first 2
-      folios into a signature and the last 3 folios into a signature. I often cut them apart only
-      when I'm stitching things together.
-    </p>
-    <p>
-      Note that when folding, it's important for the
-      <b>center of the folios to line up</b>. That's what I measure against (less so fretting about
-      folding exactly at the edge). Remember! Printer skew is a real thing!
-    </p>
-  </details>
 </section>
 
         <section class="section" id="flyleaf_info">
-  <header><h2>Flyleafs</h2></header>
+  <header><h2>Folhas de guarda</h2></header>
   <label
-    >Add flyleafs: <input type="number" name="flyleafs" value="1" class="inline" />
+    >Adicionar folhas de guarda: <input type="number" name="flyleafs" value="1" class="inline" />
     <span
       data-balloon-length="medium"
-      aria-label="Extra blank pages at the start and end of the book"
+      aria-label="Páginas em branco extras no início e no fim do livro"
       data-balloon-pos="up"
       >ℹ️</span
     ></label
@@ -652,21 +685,21 @@
 </section>
 
         <section class="section" id="sig_info">
-  <header><h2>Signature Info</h2></header>
+  <header><h2>Informações dos cadernos</h2></header>
 
   <center>
     <iframe id="pdf" style="width: 100%; height: 10px; display: none"></iframe>
   </center>
   <div class="space_out">
-    <span>Total Pages: <span id="total_pages"></span></span>
-    <span>Processed PDF Pages: <span id="page_count"></span></span>
+    <span>Total de páginas: <span id="total_pages"></span></span>
+    <span>Páginas do PDF processadas: <span id="page_count"></span></span>
   </div>
   <div class="space_out">
-    <span>Total Sheets: <span id="total_sheets"></span></span>
-    <span>Number of Signatures: <span id="sig_count"></span></span>
+    <span>Total de folhas: <span id="total_sheets"></span></span>
+    <span>Número de cadernos: <span id="sig_count"></span></span>
   </div>
   <div>
-    <div style="text-align: center">Signature Arrangement:</div>
+    <div style="text-align: center">Disposição dos cadernos:</div>
     <div id="sig_arrange" style="text-align: center"></div>
   </div>
 </section>
@@ -678,25 +711,23 @@
     id="preview"
     disabled
     data-balloon-length="medium"
-    aria-label="Will not show previews if 'Signature Files Only' is selected. Only shows one side for 'Single Sided' printing. Not tested on all browsers (or any browsers other than Chrome really...)"
+    aria-label="A pré-visualização não é exibida se 'Somente arquivos por caderno' estiver selecionado. Mostra apenas um lado na impressão 'Frente única'. Não testado em todos os navegadores (na verdade, em nenhum além do Chrome...)"
     data-balloon-pos="right"
     class="small p-1"
   >
-    Preview PDF
+    Pré-visualizar PDF
   </button>
-  <button type="button" class="larger p-1" name="generate" id="generate" disabled>
-    Generate PDF Output
-  </button>
+  <button type="button" class="larger p-1" name="generate" id="generate" disabled>Gerar PDF</button>
   <button
     type="reset"
     name="reset_settings"
     id="reset_settings"
     data-balloon-length="medium"
-    aria-label="The page is able to save and load your current settings via the site URL. Clicking this button will reset those to the default settings"
+    aria-label="A página salva e carrega suas configurações atuais pela URL do site. Clicar neste botão as redefine para os valores padrão"
     data-balloon-pos="left"
     class="small p-1"
   >
-    Reset Settings
+    Redefinir configurações
   </button>
 </div>
 
