@@ -96,6 +96,7 @@ export const schema = z.object({
   bindingEdgePaddingPt: urlSafe(z.coerce.number()).default(0),
   topEdgePaddingPt: urlSafe(z.coerce.number()).default(0),
   bottomEdgePaddingPt: urlSafe(z.coerce.number()).default(0),
+  marginsInPt: urlSafe(coercedBoolean).default(false), // unidade exibida no formulário
   sigFormat,
   sigLength: urlSafe(z.coerce.number()).default(4), // Specific to standard
   customSigLength: urlSafe(commaSeparatedNumberList).default(null), // Specific to custom.

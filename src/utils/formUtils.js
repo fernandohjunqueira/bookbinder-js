@@ -11,6 +11,7 @@ import {
   renderWacky,
   updatePageLayoutInfo,
 } from './renderUtils';
+import { marginToPt } from './marginUnits';
 import { clearUrlParams, setUrlParams, toUrlParams, updateWindowLocation } from './uri';
 
 /**
@@ -18,8 +19,10 @@ import { clearUrlParams, setUrlParams, toUrlParams, updateWindowLocation } from 
  * @param { FormData } form The form to parse into a configuration
  * @returns { import("../models/configuration").Configuration } The configuration
  */
-const fromFormToConfiguration = (form) =>
-  schema.parse({
+const fromFormToConfiguration = (form) => {
+  const marginsInPt = form.has('margins_in_pt');
+  const margin = (name) => marginToPt(form.get(name), marginsInPt);
+  return schema.parse({
     pageRange: form.get('page_range'),
     sourceRotation: form.get('source_rotation'),
     paperSize: form.get('paper_size'),
@@ -34,10 +37,11 @@ const fromFormToConfiguration = (form) =>
     cutMarks: form.has('cutmarks'),
     pageScaling: form.get('page_scaling'),
     pagePositioning: form.get('page_positioning'),
-    mainForeEdgePaddingPt: form.get('main_fore_edge_padding_pt'),
-    bindingEdgePaddingPt: form.get('binding_edge_padding_pt'),
-    topEdgePaddingPt: form.get('top_edge_padding_pt'),
-    bottomEdgePaddingPt: form.get('bottom_edge_padding_pt'),
+    mainForeEdgePaddingPt: margin('main_fore_edge_padding_pt'),
+    bindingEdgePaddingPt: margin('binding_edge_padding_pt'),
+    topEdgePaddingPt: margin('top_edge_padding_pt'),
+    bottomEdgePaddingPt: margin('bottom_edge_padding_pt'),
+    marginsInPt,
     sigFormat: form.get('sig_format'),
     sigLength: form.get('sig_length'),
     customSigLength: form.get('custom_sig'),
@@ -55,6 +59,7 @@ const fromFormToConfiguration = (form) =>
     sewingMarksAmount: form.get('sewing_marks_amount'),
     sewingMarksTapeWidthPt: form.get('sewing_marks_tape_width_pt'),
   });
+};
 
 /**
  * Sets the configuration to the URL.

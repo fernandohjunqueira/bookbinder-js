@@ -12,6 +12,7 @@ import {
   handleSewingMarksCheckboxState,
 } from './utils/clickHandlers.js';
 import { renderPaperSelectOptions } from './utils/renderUtils.js';
+import { handleMarginUnitToggle } from './utils/marginUnits.js';
 
 window.addEventListener('DOMContentLoaded', () => {
   // render dynamic content
@@ -27,6 +28,7 @@ window.addEventListener('DOMContentLoaded', () => {
   const inputs = document.querySelectorAll('input, select');
   const sourceRotation = document.getElementById('source_rotation');
   const sewingMarks = document.getElementById('add_sewing_marks_checkbox');
+  const marginsInPt = document.getElementById('margins_in_pt');
   const sourceRotationExamples = Array.from(
     document.getElementsByClassName('source_rotation_example')
   );
@@ -35,6 +37,9 @@ window.addEventListener('DOMContentLoaded', () => {
   const book = new Book(configuration);
 
   // add event listeners to grabbed elements
+  // Precisa ser registrado antes do listener genérico abaixo, para converter os valores
+  // das margens para a nova unidade antes de o formulário ser salvo.
+  marginsInPt.addEventListener('change', (e) => handleMarginUnitToggle(e.target.checked));
   inputs.forEach((input) => {
     input.addEventListener('change', () => handleInputChange(book, bookbinderForm));
   });

@@ -54,46 +54,60 @@
 
   <span class="flex space-evenly align-center layout_margin_user_input">
     <div class="input-group ml-2 mt-1">
-      <label>
-        Margem externa (corte frontal):
+      <label
+        >Margem externa (corte frontal):
         <input
           type="number"
+          step="any"
           id="main_fore_edge_padding_pt"
           name="main_fore_edge_padding_pt"
           class="layout_margin_user_input_field inline"
-        />pt</label
+        /><span class="margin_unit">cm</span></label
       >
       <label
         >Margem da encadernação:
         <input
           type="number"
+          step="any"
           id="binding_edge_padding_pt"
           name="binding_edge_padding_pt"
           class="layout_margin_user_input_field inline"
-        />pt</label
+        /><span class="margin_unit">cm</span></label
       >
       <label
         >Margem superior:
         <input
           type="number"
+          step="any"
           id="top_edge_padding_pt"
           name="top_edge_padding_pt"
           class="layout_margin_user_input_field inline"
-        />pt</label
+        /><span class="margin_unit">cm</span></label
       >
       <label
         >Margem inferior:
         <input
           type="number"
+          step="any"
           id="bottom_edge_padding_pt"
           name="bottom_edge_padding_pt"
           class="layout_margin_user_input_field inline"
-        />pt</label
+        /><span class="margin_unit">cm</span></label
+      >
+      <label
+        >Informar margens em pontos:
+        <input type="checkbox" id="margins_in_pt" name="margins_in_pt" />
+        <span
+          data-balloon-length="medium"
+          aria-label="Por padrão as margens são informadas em centímetros. Marque para informar em pontos (1 ponto = 1/72 polegada)."
+          data-balloon-pos="up"
+          >ℹ️</span
+        ></label
       >
     </div>
     <div class="small shrink" style="max-width: 15em">
-      Ajuste de espaço em branco. Todos os valores são em pontos, relativos ao documento
-      original.<br /><br />1 ponto = 1/72 polegada
+      Ajuste de espaço em branco. Valores relativos ao documento original, em centímetros (ou em
+      pontos, se a opção estiver marcada).<br /><br />1 cm ≈ 28,35 pontos
     </div>
   </span>
 

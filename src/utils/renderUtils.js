@@ -4,6 +4,7 @@
 
 import { PAGE_SIZES } from '../constants';
 import { handleSewingMarksCheckboxState } from './clickHandlers.js';
+import { renderMarginFields } from './marginUnits.js';
 
 // Tamanhos de papel exibidos na lista. Os demais continuam em PAGE_SIZES, mas ficam ocultos.
 const VISIBLE_PAPER_SIZES = ['A4', 'A5'];
@@ -226,14 +227,7 @@ export function renderFormFromSettings(configuration) {
     configuration.sewingMarksTapeWidthPt;
 
   // Set freeform inputs
-  document.querySelector('input[name="main_fore_edge_padding_pt"]').value =
-    configuration.mainForeEdgePaddingPt;
-  document.querySelector('input[name="binding_edge_padding_pt"]').value =
-    configuration.bindingEdgePaddingPt;
-  document.querySelector('input[name="top_edge_padding_pt"]').value =
-    configuration.topEdgePaddingPt;
-  document.querySelector('input[name="bottom_edge_padding_pt"]').value =
-    configuration.bottomEdgePaddingPt;
+  renderMarginFields(configuration, configuration.marginsInPt);
   document.querySelector('input[name="fore_edge_padding_pt"]').value =
     configuration.foreEdgePaddingPt;
   document.querySelector('input[name="flyleafs"]').value = configuration.flyleafs;
