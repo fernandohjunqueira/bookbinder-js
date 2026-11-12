@@ -5,6 +5,9 @@
 import { PAGE_SIZES } from '../constants';
 import { handleSewingMarksCheckboxState } from './clickHandlers.js';
 
+// Tamanhos de papel exibidos na lista. Os demais continuam em PAGE_SIZES, mas ficam ocultos.
+const VISIBLE_PAPER_SIZES = ['A4', 'A5'];
+
 export function renderPageCount(book) {
   const pageCount = document.getElementById('page_count');
   if (book.sourcePageCount && book.pagecount !== book.sourcePageCount) {
@@ -136,7 +139,7 @@ export function renderPaperSelectOptions() {
   //       s.length;
   //     })
   //   );
-  Object.keys(PAGE_SIZES).forEach((key) => {
+  VISIBLE_PAPER_SIZES.forEach((key) => {
     const opt = document.createElement('option');
     opt.setAttribute('value', key);
     opt.setAttribute('name', key);
@@ -242,7 +245,13 @@ export function renderFormFromSettings(configuration) {
   document.querySelector('select[name="page_scaling"]').value = configuration.pageScaling;
   document.querySelector('select[name="page_positioning"]').value = configuration.pagePositioning;
   document.querySelector('select[name="print_file"]').value = configuration.printFile;
-  document.querySelector('select[name="paper_size"]').value = configuration.paperSize;
+  const paperSizeSelect = document.querySelector('select[name="paper_size"]');
+  paperSizeSelect.value = configuration.paperSize;
+  // Tamanho salvo que não está mais na lista (ex.: LETTER de um link antigo): volta para A4
+  if (paperSizeSelect.value === '' && configuration.paperSize !== 'CUSTOM') {
+    paperSizeSelect.value = 'A4';
+    configuration.paperSize = 'A4';
+  }
   document.querySelector('select[name="paper_size_unit"]').value = configuration.paperSizeUnit;
   document.querySelector('select[name="printer_type"]').value = configuration.printerType;
 
