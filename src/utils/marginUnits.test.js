@@ -3,12 +3,12 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 import { describe, expect, it } from 'vitest';
-import { PT_PER_CM, marginFromPt, marginToPt } from './marginUnits';
+import { PT_PER_MM, marginFromPt, marginToPt } from './marginUnits';
 
 describe('marginUnits', () => {
-  it('converte centímetros para pontos', () => {
-    expect(marginToPt('2.54', false)).toBeCloseTo(72);
-    expect(marginToPt('1', false)).toBeCloseTo(PT_PER_CM);
+  it('converte milímetros para pontos', () => {
+    expect(marginToPt('25.4', false)).toBeCloseTo(72);
+    expect(marginToPt('1', false)).toBeCloseTo(PT_PER_MM);
   });
 
   it('mantém o valor quando já está em pontos', () => {
@@ -21,9 +21,9 @@ describe('marginUnits', () => {
     expect(marginToPt('abc', false)).toBe('abc');
   });
 
-  it('exibe pontos em centímetros com 2 casas', () => {
-    expect(marginFromPt(72, false)).toBe(2.54);
-    expect(marginFromPt(10, false)).toBe(0.35);
+  it('exibe pontos em milímetros com 2 casas', () => {
+    expect(marginFromPt(72, false)).toBe(25.4);
+    expect(marginFromPt(10, false)).toBe(3.53);
   });
 
   it('exibe pontos arredondados quando em pontos', () => {

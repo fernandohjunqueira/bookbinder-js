@@ -3,9 +3,9 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 // As margens são sempre guardadas em pontos na configuração; o formulário pode
-// exibi-las em centímetros (padrão) ou em pontos.
+// exibi-las em milímetros (padrão) ou em pontos.
 
-export const PT_PER_CM = 72 / 2.54;
+export const PT_PER_MM = 72 / 25.4;
 
 /** Campos de margem do layout da página: chave na configuração -> nome no formulário. */
 export const MARGIN_FIELDS = {
@@ -23,7 +23,7 @@ export const MARGIN_FIELDS = {
  */
 export function marginToPt(value, inPt) {
   if (inPt || value === null || value === '' || isNaN(value)) return value;
-  return Number(value) * PT_PER_CM;
+  return Number(value) * PT_PER_MM;
 }
 
 /**
@@ -32,7 +32,7 @@ export function marginToPt(value, inPt) {
  * @param { boolean } inPt Se o formulário exibe pontos
  */
 export function marginFromPt(pt, inPt) {
-  const value = inPt ? pt : pt / PT_PER_CM;
+  const value = inPt ? pt : pt / PT_PER_MM;
   return Math.round(value * 100) / 100;
 }
 
@@ -47,7 +47,7 @@ export function renderMarginFields(ptValues, inPt) {
   });
   document.querySelector('input[name="margins_in_pt"]').checked = inPt;
   document.querySelectorAll('.margin_unit').forEach((el) => {
-    el.innerText = inPt ? 'pt' : 'cm';
+    el.innerText = inPt ? 'pt' : 'mm';
   });
 }
 
