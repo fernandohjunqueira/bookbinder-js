@@ -8,7 +8,7 @@ import { handleSewingMarksCheckboxState } from './clickHandlers.js';
 export function renderPageCount(book) {
   const pageCount = document.getElementById('page_count');
   if (book.sourcePageCount && book.pagecount !== book.sourcePageCount) {
-    pageCount.innerText = `${book.pagecount} of ${book.sourcePageCount}`;
+    pageCount.innerText = `${book.pagecount} de ${book.sourcePageCount}`;
     return;
   }
 
@@ -69,21 +69,21 @@ export function updatePageLayoutInfo(info) {
   displayDiv.style.margin = `${dims[1]}px ${dims[0]}px`;
 
   document.getElementById('page_grid_layout').innerText =
-    `${info.dimensions.layout.rows} rows x ${info.dimensions.layout.cols} cols`;
+    `${info.dimensions.layout.rows} linhas x ${info.dimensions.layout.cols} colunas`;
   document.getElementById('page_grid_dimensions').innerText = `${paperDims[0]}, ${paperDims[1]}`;
   document.getElementById('pdf_source_dimensions').innerText =
     `${info.cropbox.width}, ${info.cropbox.height}`;
   document.getElementById('pdf_page_dimensions').innerText =
     `${pdfDims[0].toFixed(2)}, ${pdfDims[1].toFixed(2)}`;
   document.getElementById('pdf_offset_dimensions').innerHTML = `
-  ${info.dimensions.xBindingShiftFunc().toFixed(2)} from spine <BR>
-  ${info.dimensions.yTopShiftFunc().toFixed(2)} from top <BR>
-  ${info.dimensions.xForeEdgeShiftFunc().toFixed(2)} from fore edge <BR>
-  ${info.dimensions.yBottomShiftFunc().toFixed(2)} from bottom
+  ${info.dimensions.xBindingShiftFunc().toFixed(2)} da lombada <BR>
+  ${info.dimensions.yTopShiftFunc().toFixed(2)} do topo <BR>
+  ${info.dimensions.xForeEdgeShiftFunc().toFixed(2)} do corte frontal <BR>
+  ${info.dimensions.yBottomShiftFunc().toFixed(2)} da base
   `;
   document.getElementById('pdf_scale_dimensions').innerText =
     `${info.dimensions.pdfScale[0].toFixed(2)}, ${info.dimensions.pdfScale[1].toFixed(2)}`;
-  document.getElementById('pdf_page_rotation_info').innerText = `${needsRotation}`;
+  document.getElementById('pdf_page_rotation_info').innerText = needsRotation ? 'Sim' : 'Não';
 }
 /**
  * Expects a data object describing the overall page layout info:
@@ -95,12 +95,13 @@ export function updatePaperSelectOptionsUnits() {
   for (const option of Array.from(paperList.children)) {
     const paperName = option.value;
     const paper = PAGE_SIZES[paperName];
-    let label = `${paperName} (${paper[0]} x ${paper[1]} pt)`;
+    const displayName = paperName === 'CUSTOM' ? 'PERSONALIZADO' : paperName;
+    let label = `${displayName} (${paper[0]} x ${paper[1]} pt)`;
     // conversion values from Google default converter
     if (paperListUnit == 'in') {
-      label = `${paperName} (${(paper[0] * 0.0138889).toFixed(1)} x ${(paper[1] * 0.0138889).toFixed(1)} inches)`;
+      label = `${displayName} (${(paper[0] * 0.0138889).toFixed(1)} x ${(paper[1] * 0.0138889).toFixed(1)} pol)`;
     } else if (paperListUnit == 'cm') {
-      label = `${paperName} (${(paper[0] * 0.0352778).toFixed(2)} x ${(paper[1] * 0.0352778).toFixed(2)} cm)`;
+      label = `${displayName} (${(paper[0] * 0.0352778).toFixed(2)} x ${(paper[1] * 0.0352778).toFixed(2)} cm)`;
     }
     option.setAttribute('label', label);
   }

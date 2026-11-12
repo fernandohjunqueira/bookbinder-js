@@ -12,7 +12,7 @@ import {
 export function handleGenerateClick(generateEl, book) {
   generateEl.setAttribute('disabled', true);
   generateEl.style.fontSize = '13px';
-  generateEl.innerText = 'Generating, this may take a little while...';
+  generateEl.innerText = 'Gerando, isso pode levar um tempinho...';
   console.log('The whole Book model:', book);
   const result = book.createoutputfiles(false);
   result
@@ -25,13 +25,13 @@ export function handleGenerateClick(generateEl, book) {
     .finally(() => {
       generateEl.removeAttribute('disabled');
       generateEl.style.fontSize = '24px';
-      generateEl.innerText = 'Generate PDF Output';
+      generateEl.innerText = 'Gerar PDF';
     });
 }
 
 export function handlePreviewClick(previewEl, book) {
   previewEl.setAttribute('disabled', true);
-  previewEl.innerText = 'Generating Preview...';
+  previewEl.innerText = 'Gerando pré-visualização...';
   clearPreview();
   const result = book.createoutputfiles(true);
   result
@@ -43,7 +43,7 @@ export function handlePreviewClick(previewEl, book) {
     })
     .finally(() => {
       previewEl.removeAttribute('disabled');
-      previewEl.innerText = 'Preview Output';
+      previewEl.innerText = 'Pré-visualizar PDF';
     });
 }
 

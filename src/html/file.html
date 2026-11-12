@@ -1,26 +1,33 @@
 <section class="section" id="input">
-  <header><h2>File Info</h2></header>
+  <header><h2>Arquivo</h2></header>
   <label
-    >Input File: <input type="file" name="input_file" accept=".pdf" id="input_file" class="inline"
+    >Arquivo de entrada:
+    <input type="file" name="input_file" accept=".pdf" id="input_file" class="inline"
   /></label>
-  <!-- <span class="row"><label>Page Size: <span id="page_size"></span></span> -->
-  <!-- <span class="row">Page Ratio: <span id="input_ratio"></span></span> -->
+  <!-- <span class="row"><label>Tamanho da página: <span id="page_size"></span></span> -->
+  <!-- <span class="row">Proporção da página: <span id="input_ratio"></span></span> -->
   <p class="flash variant">
-    While some PDF viewers display the first two pages as a spread, be aware the first page, which
-    is odd, will be on the right when printed. The first printed spread are pages 2 & 3 of your PDF
-    document. Evens always on the left, odds always on the right.
+    Embora alguns leitores de PDF mostrem as duas primeiras páginas lado a lado, saiba que a
+    primeira página, que é ímpar, ficará à direita quando impressa. O primeiro par de páginas
+    impresso são as páginas 2 e 3 do seu PDF. Pares sempre à esquerda, ímpares sempre à direita.
   </p>
   <label for="print_file"
-    >Generated Files:
+    >Arquivos gerados:
     <select name="print_file" id="print_file" class="inline">
-      <option value="aggregated">Aggregated File Only</option>
-      <option value="both" selected>Both aggregated & per signature files</option>
-      <option value="signatures">Signature Files Only</option>
+      <option value="aggregated">Somente arquivo agregado</option>
+      <option value="both" selected>Arquivo agregado e arquivos por caderno</option>
+      <option value="signatures">Somente arquivos por caderno</option>
     </select>
   </label>
   <label
-    >Page Range:
-    <input type="text" name="page_range" id="page_range" class="inline" placeholder="All pages" />
+    >Intervalo de páginas:
+    <input
+      type="text"
+      name="page_range"
+      id="page_range"
+      class="inline"
+      placeholder="Todas as páginas"
+    />
   </label>
-  <small>Optional. Examples: <code>1-8</code>, <code>1,3,5-7</code>.</small>
+  <small>Opcional. Exemplos: <code>1-8</code>, <code>1,3,5-7</code>.</small>
 </section>

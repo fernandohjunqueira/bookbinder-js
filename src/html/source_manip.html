@@ -1,16 +1,16 @@
 <section class="section" id="input">
-  <header><h2>Source Manipulation</h2></header>
+  <header><h2>Ajuste do original</h2></header>
   <label for="source_rotation" class="mb-1"
-    >Style:
+    >Estilo:
     <select name="source_rotation" id="source_rotation" class="inline">
-      <option id="none" value="none" selected="selected">no modification</option>
-      <option id="90cw" value="90cw">rotate pages 90° clockwise</option>
-      <option id="90ccw" value="90ccw">rotate pages 90° counter clockwise</option>
+      <option id="none" value="none" selected="selected">sem modificação</option>
+      <option id="90cw" value="90cw">girar páginas 90° no sentido horário</option>
+      <option id="90ccw" value="90ccw">girar páginas 90° no sentido anti-horário</option>
       <option id="out_binding" value="out_binding">
-        odd pages 90° clockwise, even pages 90° anti-clockwise
+        páginas ímpares 90° no sentido horário, pares 90° no sentido anti-horário
       </option>
       <option id="in_binding" value="in_binding">
-        odd pages 90° anti-clockwise, even pages 90° clockwise
+        páginas ímpares 90° no sentido anti-horário, pares 90° no sentido horário
       </option>
     </select>
   </label>
@@ -19,24 +19,24 @@
     <img src="/img/noRotationDiagram.png" width="100px" />
     <p>
       <br />
-      For books that read like a standard novel<br />
-      no rotation of pages applied
+      Para livros que se leem como um romance comum<br />
+      nenhuma rotação é aplicada às páginas
     </p>
   </div>
   <div id="90cw_example" class="hidden source_rotation_example flash variant small flex center">
     <img src="/img/90cwDiagram.png" width="100px" />
     <p>
       <br />
-      For books that turn pages like a calender<br />
-      back to front, rotate all pages 90° clockwise
+      Para livros que viram as páginas como um calendário<br />
+      de trás para frente, gira todas as páginas 90° no sentido horário
     </p>
   </div>
   <div id="90ccw_example" class="hidden source_rotation_example flash variant small flex center">
     <img src="/img/90ccwDiagram.png" width="100px" />
     <p>
       <br />
-      For books that turn pages like a calender<br />
-      front to back, rotate all pages 90° counter clockwise
+      Para livros que viram as páginas como um calendário<br />
+      de frente para trás, gira todas as páginas 90° no sentido anti-horário
     </p>
   </div>
   <div
@@ -46,8 +46,8 @@
     <img src="/img/bottomBindingDiagram.png" width="100px" />
     <p>
       <br />
-      For books with bound edge at bottom of the page<br />
-      rotate all odd pages 90° clockwise, all even pages 90° anti-clockwise
+      Para livros com a encadernação na base da página<br />
+      gira as páginas ímpares 90° no sentido horário e as pares 90° no sentido anti-horário
     </p>
   </div>
   <div
@@ -57,8 +57,8 @@
     <img src="/img/topBindingDiagram.png" width="100px" />
     <p>
       <br />
-      For books with bound edge at top of the page<br />
-      rotate all odd pages 90° anti-clockwise, all even pages 90° clockwise
+      Para livros com a encadernação no topo da página<br />
+      gira as páginas ímpares 90° no sentido anti-horário e as pares 90° no sentido horário
     </p>
   </div>
 </section>

@@ -1,57 +1,57 @@
 <section class="section" id="sig_format">
-  <header><h2>Signature Format</h2></header>
+  <header><h2>Formato dos cadernos</h2></header>
 
   <label>
     <input type="radio" id="booklet" name="sig_format" value="booklet" />
-    Booklet</label
+    Livreto</label
   >
 
   <label for="perfect">
     <input type="radio" id="perfect" name="sig_format" value="perfect" />
-    Perfectbound</label
+    Brochura (lombada colada)</label
   >
 
   <label for="standardsig"
-    ><input type="radio" id="standardsig" name="sig_format" value="standardsig" checked /> Standard
-    signatures - length <input type="number" value="8" name="sig_length" class="inline" />
+    ><input type="radio" id="standardsig" name="sig_format" value="standardsig" checked /> Cadernos
+    padrão - tamanho <input type="number" value="8" name="sig_length" class="inline" />
     <span
       data-balloon-length="medium"
-      aria-label="Number of sheets per signature"
+      aria-label="Número de folhas por caderno"
       data-balloon-pos="up"
       >ℹ️</span
     ></label
   >
 
   <label for="customsig" class="mb-1">
-    <input type="radio" id="customsig" name="sig_format" value="customsig" />Custom signatures
+    <input type="radio" id="customsig" name="sig_format" value="customsig" />Cadernos personalizados
     <input type="text" name="custom_sig" class="inline" />
 
     <span
       data-balloon-length="medium"
-      aria-label="Specify as a set of numbers seperated by commas, such as: 10, 10, 8"
+      aria-label="Informe uma lista de números separados por vírgulas, por exemplo: 10, 10, 8"
       data-balloon-pos="up"
       >ℹ️</span
     >
   </label>
   <details>
-    <summary>A note on calculating signature lengths</summary>
+    <summary>Uma observação sobre o cálculo do tamanho dos cadernos</summary>
     <p>
-      In this code, the length of a signature is the number of full-sized sheets of paper per
-      signature. For a folio book, this means that the number of folds you punch through when sewing
-      together a signature is the same as the number of sheets in the signature, as each sheet has
-      one fold. For quarto, this will be two folds for each sheet - octavo, four; sextodecimo,
-      eight. Calculate your signature lengths accordingly (in particular, you almost certainly don't
-      want more than one sheet for sextodecimo).
+      Aqui, o tamanho de um caderno é o número de folhas de papel inteiras por caderno. Em um livro
+      em fólio, isso significa que o número de dobras que você fura ao costurar um caderno é igual
+      ao número de folhas do caderno, já que cada folha tem uma dobra. No quarto, serão duas dobras
+      por folha - no oitavo, quatro; no dezesseis avos, oito. Calcule o tamanho dos seus cadernos de
+      acordo (em especial, você quase certamente não vai querer mais de uma folha no dezesseis
+      avos).
     </p>
   </details>
-  <h3>Wacky Small Layouts</h3>
+  <h3>Layouts Pequenos Malucos</h3>
   <p class="flash variant">
-    These layouts contain one or more signature per printed page. They use only the "File Info" and
-    "Printer" settings. The names are arbitrary and hold no standardized meaning.
+    Estes layouts contêm um ou mais cadernos por página impressa. Eles usam apenas as configurações
+    de "Arquivo" e "Impressora". Os nomes são arbitrários e não têm significado padronizado.
   </p>
   <div class="flex space-evenly">
     <label class="centered"
-      >Fore-Edge Padding: <br /><input
+      >Margem externa (corte frontal): <br /><input
         type="number"
         id="fore_edge_padding_pt"
         name="fore_edge_padding_pt"
@@ -66,160 +66,161 @@
           name="wacky_spacing"
           value="wacky_pack"
           checked
-        />Packed page layout</label
+        />Layout com páginas agrupadas</label
       >
       <label for="wacky_gap"
-        ><input type="radio" id="wacky_gap" name="wacky_spacing" value="wacky_gap" />Distributed
-        space page layout</label
+        ><input type="radio" id="wacky_gap" name="wacky_spacing" value="wacky_gap" />Layout com
+        espaço distribuído</label
       >
     </div>
   </div>
 
   <label for="1_3rd">
-    <input type="radio" id="1_3rd" name="sig_format" value="1_3rd" />6 per side
-    <small>(3 folio signature)</small></label
+    <input type="radio" id="1_3rd" name="sig_format" value="1_3rd" />6 por lado
+    <small>(caderno de 3 fólios)</small></label
   >
 
   <details class="ml-2">
-    <summary>Instructions</summary>
+    <summary>Instruções</summary>
     <p>
-      Cut along the lines <i>or</i> cut just extra bit off the top (along exposed "top" of page) and
-      then fold up along the dotted lines (if trimming, you can just trim off the cruft at the
-      bottom-- tops need to be even for leveling purposes however). Outer margins intentionally
-      under-marked so you can trim wherever feels right after folding & assembly.
+      Corte ao longo das linhas <i>ou</i> corte apenas a sobra do topo (ao longo do "topo" exposto
+      da página) e depois dobre ao longo das linhas pontilhadas (se for refilar, pode cortar só o
+      excesso da base -- mas os topos precisam ficar iguais para o nivelamento). As margens externas
+      são intencionalmente pouco marcadas para que você possa refilar onde achar melhor depois de
+      dobrar e montar.
     </p>
     <p>
-      Not the most paper efficient of layouts, but it's optimized for organization (if a signature
-      is just one page, harder to botch the ordering) and many, smaller signatures make for rounder
-      backs and large swell in my [six's] opinion (which helps w/ nice shoulders, if you're into
-      that sort of thing)
+      Não é o layout que mais economiza papel, mas é otimizado para organização (se um caderno é uma
+      única folha, fica mais difícil errar a ordem) e muitos cadernos menores resultam em lombadas
+      mais arredondadas e mais volume, na minha opinião [de six] (o que ajuda a fazer bons ombros,
+      se você curte isso)
     </p>
   </details>
 
   <label for="A7_2_16s"
-    ><input type="radio" id="A7_2_16s" name="sig_format" value="A7_2_16s" /> Petite - 16 per side
-    <small>(4 folio signature x 2)</small></label
+    ><input type="radio" id="A7_2_16s" name="sig_format" value="A7_2_16s" /> Petite - 16 por lado
+    <small>(caderno de 4 fólios x 2)</small></label
   >
 
   <details class="ml-2">
-    <summary>Instructions</summary>
+    <summary>Instruções</summary>
     <p>
       <center>
         <img src="/img/2_sig_4x4_diagram.png" />
       </center>
-      Cut the vertical center line. You can also cut the horizontal lines if you like, or just fold
-      it up as detailed above.
+      Corte a linha central vertical. Você também pode cortar as linhas horizontais, se quiser, ou
+      apenas dobrar como descrito acima.
     </p>
   </details>
 
   <label for="8_zine">
-    <input type="radio" id="8_zine" name="sig_format" value="8_zine" /> Single Sheet Zine - 8 per
-    side <small>(one sided printed page foldup)</small></label
+    <input type="radio" id="8_zine" name="sig_format" value="8_zine" /> Zine de folha única - 8 por
+    lado <small>(página impressa de um lado só, dobrada)</small></label
   >
   <details class="ml-2">
-    <summary>Instructions</summary>
+    <summary>Instruções</summary>
     <p>
-      The classic no-cut, single page zine! Just fold it up right and you've got yourself a mutant
-      non-standard folio making an 8 page little fellow-- all extra pages beyond 8 are discarded.
-      For better folding instructions than I could possibly write, see:
+      O clássico zine de folha única, sem cortes! Basta dobrar do jeito certo e você tem um fólio
+      mutante fora do padrão formando um livrinho de 8 páginas -- páginas além da 8ª são
+      descartadas. Para instruções de dobra melhores do que eu conseguiria escrever, veja:
       <a href="https://www.quarantinepubliclibrary.com/tutorial"
         >https://www.quarantinepubliclibrary.com/tutorial</a
       >
     </p>
   </details>
   <label for="a_3_6s"
-    ><input type="radio" id="a_3_6s" name="sig_format" value="a_3_6s" />Small - 18 per side
-    <small>(3 folio signature per row x 3)</small></label
+    ><input type="radio" id="a_3_6s" name="sig_format" value="a_3_6s" />Pequeno - 18 por lado
+    <small>(caderno de 3 fólios por linha x 3)</small></label
   >
   <details class="ml-2">
-    <summary>Instructions</summary>
+    <summary>Instruções</summary>
     <p class="flash attention">
-      THIS IS A LANDSCAPE LAYOUT. IT MUST BE PRINTED AND "flipped on the short side" (the
-      non-typical flipping)
+      ESTE É UM LAYOUT EM PAISAGEM. ELE DEVE SER IMPRESSO "virando pela borda curta" (o modo de
+      virar menos comum)
     </p>
 
     <p>
-      Remember to do a single-sheet test print if it's your first time to make sure duplex/mirroring
-      is correct!
+      Lembre-se de fazer uma impressão de teste de uma folha se for sua primeira vez, para garantir
+      que o frente e verso/espelhamento está correto!
     </p>
     <p>
-      Cut out the rows. Fold up the folios like a zig-zag (two per face). Then fold the center of
-      the text (smoosh the two matching page numbers together).
+      Recorte as linhas. Dobre os fólios em zigue-zague (dois por face). Depois dobre o centro do
+      texto (junte os dois números de página correspondentes).
     </p>
     <p>
-      Note that when folding, it's important for the
-      <b>center of the folios to line up</b>. That's what I measure against (less so fretting about
-      folding exactly at the edge). Remember! Printer skew is a real thing!
+      Ao dobrar, é importante que o
+      <b>centro dos fólios fique alinhado</b>. É isso que eu uso como referência (menos preocupação
+      em dobrar exatamente na borda). Lembre-se! O desalinhamento da impressora existe!
     </p>
   </details>
 
   <label for="a9_3_3_4">
-    <input type="radio" id="a9_3_3_4" name="sig_format" value="a9_3_3_4" />Little - 20 per side
-    <small>(3 folio / 3 folio / 4 folio signatures)</small></label
+    <input type="radio" id="a9_3_3_4" name="sig_format" value="a9_3_3_4" />Miúdo - 20 por lado
+    <small>(cadernos de 3 fólios / 3 fólios / 4 fólios)</small></label
   >
 
   <details class="ml-2">
-    <summary>Instructions</summary>
+    <summary>Instruções</summary>
     <p>
       <center>
         <img src="/img/3_3_4_diagram.png" />
       </center>
-      Cut along the cut lines. Fold up the 3 folio signatures, then the 4 folio.
+      Corte nas linhas de corte. Dobre os cadernos de 3 fólios e depois o de 4 fólios.
     </p>
   </details>
 
   <label for="a_4_8s"
-    ><input type="radio" id="a_4_8s" name="sig_format" value="a_4_8s" />Tiny - 32 per side
-    <small>(4 folio signature per row x 4)</small></label
+    ><input type="radio" id="a_4_8s" name="sig_format" value="a_4_8s" />Minúsculo - 32 por lado
+    <small>(caderno de 4 fólios por linha x 4)</small></label
   >
 
   <details class="ml-2">
-    <summary>Instructions</summary>
+    <summary>Instruções</summary>
     <p class="flash attention">
-      THIS IS A LANDSCAPE LAYOUT. IT MUST BE PRINTED AND "flipped on the short side" (the
-      non-typical flipping)
+      ESTE É UM LAYOUT EM PAISAGEM. ELE DEVE SER IMPRESSO "virando pela borda curta" (o modo de
+      virar menos comum)
     </p>
     <p>
-      Remember to do a single-sheet test print if it's your first time to make sure duplex/mirroring
-      is correct!
+      Lembre-se de fazer uma impressão de teste de uma folha se for sua primeira vez, para garantir
+      que o frente e verso/espelhamento está correto!
     </p>
     <p>
-      Cut out the rows. Fold up the folios like a zig-zag (two per face). Then fold the center of
-      the text (smoosh the two matching page numbers together).
+      Recorte as linhas. Dobre os fólios em zigue-zague (dois por face). Depois dobre o centro do
+      texto (junte os dois números de página correspondentes).
     </p>
     <p>
-      Note that when folding, it's important for the
-      <b>center of the folios to line up</b>. That's what I measure against (less so fretting about
-      folding exactly at the edge). Remember! Printer skew is a real thing!
+      Ao dobrar, é importante que o
+      <b>centro dos fólios fique alinhado</b>. É isso que eu uso como referência (menos preocupação
+      em dobrar exatamente na borda). Lembre-se! O desalinhamento da impressora existe!
     </p>
   </details>
 
   <label for="a10_6_10s"
-    ><input type="radio" id="a10_6_10s" name="sig_format" value="a10_6_10s" />Mini - 60 per side
-    <small>(2 folio / 3 folio signatures per row x 6)</small></label
+    ><input type="radio" id="a10_6_10s" name="sig_format" value="a10_6_10s" />Mini - 60 por lado
+    <small>(cadernos de 2 fólios / 3 fólios por linha x 6)</small></label
   >
   <details class="ml-2">
-    <summary>Instructions</summary>
+    <summary>Instruções</summary>
     <p class="flash attention">
-      THIS IS A LANDSCAPE LAYOUT. IT MUST BE PRINTED AND "flipped on the short side" (the
-      non-typical flipping)
+      ESTE É UM LAYOUT EM PAISAGEM. ELE DEVE SER IMPRESSO "virando pela borda curta" (o modo de
+      virar menos comum)
     </p>
     <p>
-      Thankfully most small layouts fit on one page-- easy enough to do a test print and make sure
-      you're duplexing correctly (if that's your route)
+      Felizmente a maioria dos layouts pequenos cabe em uma página -- é fácil fazer uma impressão de
+      teste e conferir se o frente e verso está correto (se for esse o seu caminho)
     </p>
     <p>
       <center>
         <img src="/img/6_10s_diagram.png" />
       </center>
-      Cut out the rows. Fold up the folios like a big zig-zag (two per face). Then fold the first 2
-      folios into a signature and the last 3 folios into a signature. I often cut them apart only
-      when I'm stitching things together.
+      Recorte as linhas. Dobre os fólios em um grande zigue-zague (dois por face). Depois dobre os 2
+      primeiros fólios em um caderno e os 3 últimos em outro. Muitas vezes eu só os separo na hora
+      de costurar.
     </p>
     <p>
-      Note that when folding, it's important for the
-      <b>center of the folios to line up</b>. That's what I measure against (less so fretting about
-      folding exactly at the edge). Remember! Printer skew is a real thing!
+      Ao dobrar, é importante que o
+      <b>centro dos fólios fique alinhado</b>. É isso que eu uso como referência (menos preocupação
+      em dobrar exatamente na borda). Lembre-se! O desalinhamento da impressora existe!
     </p>
   </details>
 </section>

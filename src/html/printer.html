@@ -1,20 +1,20 @@
 <section class="section" id="printer_info">
-  <header><h2>Printer</h2></header>
+  <header><h2>Impressora</h2></header>
   <label for="paper_size"
-    >Paper size:
+    >Tamanho do papel:
     <select name="paper_size" id="paper_size" class="inline"></select
   ></label>
   <div class="ml-2 input-group">
     <label for="paper_size_unit"
-      >Display unit for paper selection:
+      >Unidade exibida na seleção de papel:
       <select name="paper_size_unit" id="paper_size_unit" class="inline">
-        <option label="Points" value="pt" />
-        <option label="Inches" value="in" />
-        <option label="Centimeters" value="cm" />
+        <option label="Pontos" value="pt" />
+        <option label="Polegadas" value="in" />
+        <option label="Centímetros" value="cm" />
       </select>
     </label>
     <label for="paper_size_unit" class="mb-1"
-      >Dimensions for CUSTOM:
+      >Dimensões para PERSONALIZADO:
       <input
         type="number"
         id="paper_size_custom_width"
@@ -28,10 +28,10 @@
         name="paper_size_custom_height"
         class="inline"
       />
-      (in Points)
+      (em pontos)
       <span
         data-balloon-length="medium"
-        aria-label="The CUSTOM option in drop down will only appear if valid dimensions are provided. Points are the unit the system/code works in. Luckily Google can help you convert cm or inches into Points quite easily!"
+        aria-label="A opção PERSONALIZADO só aparece na lista se dimensões válidas forem informadas. Pontos são a unidade com que o sistema trabalha. Felizmente o Google converte cm ou polegadas em pontos facilmente!"
         data-balloon-pos="up"
         >ℹ️</span
       >
@@ -39,29 +39,31 @@
   </div>
 
   <label for="printer_type"
-    >Printer type:
+    >Tipo de impressora:
     <select name="printer_type" id="printer_type" class="inline">
-      <option value="single" selected>Single-Sided</option>
-      <option value="duplex">Duplex</option>
+      <option value="single" selected>Frente única</option>
+      <option value="duplex">Frente e verso (duplex)</option>
     </select>
     <span
       data-balloon-length="medium"
-      aria-label="Duplex will alternate front and backs of sheets in a single file; Single-sided will split fronts and backs into seperate files."
+      aria-label="Frente e verso alterna frentes e versos das folhas em um único arquivo; Frente única separa frentes e versos em arquivos diferentes."
       data-balloon-pos="up"
       >ℹ️</span
     ></label
   >
   <label for="paper_rotation_90"
-    >Rotate Paper 90°: <input type="checkbox" name="paper_rotation_90" id="paper_rotation_90" />
+    >Girar papel 90°: <input type="checkbox" name="paper_rotation_90" id="paper_rotation_90" />
     <span
       data-balloon-length="medium"
-      aria-label="This puts your paper in 'landscape' -- layout still happens the same, but the porportions of things will be different"
+      aria-label="Coloca o papel em 'paisagem' -- o layout continua o mesmo, mas as proporções ficam diferentes"
       data-balloon-pos="up"
       >ℹ️</span
     ></label
   >
 
   <label class="mb-1"
-    >Alternate Page Rotation (AKA Flip on Long Side):<input type="checkbox" name="rotate_page"
+    >Alternar rotação das páginas (virar pela borda longa):<input
+      type="checkbox"
+      name="rotate_page"
   /></label>
 </section>

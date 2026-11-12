@@ -692,9 +692,9 @@ export class Book {
   bundleSettings() {
     const currentConfig = loadConfiguration();
     const settings =
-      `Imposer settings: ${JSON.stringify(currentConfig, null, 2)}` +
+      `Configurações do impositor: ${JSON.stringify(currentConfig, null, 2)}` +
       '\n\n' +
-      `Link to the imposer with these settings: ${window.location.href}`;
+      `Link para o impositor com estas configurações: ${window.location.href}`;
     this.zip.file('settings.txt', settings);
   }
 
