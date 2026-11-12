@@ -6,7 +6,7 @@ If you require more detailed instructions on any of these steps, please see the 
 
 1. Prerequisites: [`node`, `npm`,](https://nodejs.org/en/download/) and [`git`](https://docs.github.com/en/get-started/quickstart/set-up-git), as well as a web browser, somewhere to edit your code, and a way to run commands in the terminal
 1. [Fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) the repository, [clone](https://docs.github.com/en/get-started/quickstart/fork-a-repo#cloning-your-forked-repository) down your copy, and navigate to the project directory (`bookbinder-js` unless you've renamed it)
-1. Set the parent repository as the upstream remote for your project with `git remote add upstream https://github.com/momijizukamori/bookbinder-js.git`
+1. Set the parent repository as the upstream remote for your project with `git remote add upstream https://github.com/fernandohjunqueira/bookbinder-js.git`
 1. Run `npm i` to install project dependencies
 
 ## Running the App
